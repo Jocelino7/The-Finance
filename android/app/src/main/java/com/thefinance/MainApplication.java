@@ -1,4 +1,4 @@
-package com.the;
+package com.thefinance;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

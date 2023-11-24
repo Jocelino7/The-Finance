@@ -1,6 +1,6 @@
 import { SourceFund } from "../../dtos/dtos"
 
-export interface SoureFundRepository {
+export interface SourceFundRepository {
     getSourceFund(uuid:string):Promise<SourceFund>
     getSourceFunds(userUuid:string):Promise<SourceFund[]>
     deleteSourceFund(userUuid:string):Promise<boolean>

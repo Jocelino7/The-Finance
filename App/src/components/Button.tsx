@@ -1,5 +1,5 @@
 
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text } from "react-native";
 
 function Button({
     text,onPress
@@ -7,8 +7,8 @@ function Button({
     text:string, onPress:Function
 }) {
     return (  
-        <Pressable onPress={()=>onPress()} className="mt-3 bg-primary">
-            <Text className="mt-3">
+        <Pressable onPress={()=>onPress()} className="w-40 bg-main rounded p-2 flex justify-center items-center" android_ripple={{color:"#ccc"}}>
+            <Text className="text-white font-bold">
                 {text}
             </Text>
         </Pressable>

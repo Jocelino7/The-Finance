@@ -1,4 +1,4 @@
-import { TransactionType } from "../../../../utils/enum"
+import { Fields, TransactionType } from "../../../../utils/enum"
 
 export type Transaction = {
     uuid:string,
@@ -6,6 +6,7 @@ export type Transaction = {
     transactionDate:TransactionDate,
     transactionType:TransactionType,
     sourceFund:SourceFund,
+    icon:string
     amount:number,
     createdAt:Date,
     updatedAt?:Date
@@ -38,7 +39,8 @@ export type User = {
     uuid:string,
     email:string,
     firstName:string,
-    lastName:string
+    lastName:string,
+    phoroUrl:string
 }
 export type UserCredential={
     email:string,
@@ -51,4 +53,8 @@ export type TransactionDate ={
     month:number,
     day:number,
     year:number
+}
+export type Validation = {
+    errorMessage:string,
+    field:Fields
 }
