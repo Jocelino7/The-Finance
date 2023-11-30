@@ -17,7 +17,21 @@ export type LocalString = {
         nov: string,
         dec: string,
     },
+    screens:{
+        home:string,
+        report:string,
+        account:string,
+        profile:string,
+        categories:string,
+        tab:string,
+        createCategory:string,
+        createGoal:string,
+        goals:string,
+        accountDetail:string,
+        settings:string,
+    }
     login: string,
+    signup:string,
     welcome: string,
     submit: string,
     haveAnAccount: string,
@@ -26,7 +40,22 @@ export type LocalString = {
     lastName:string,
     email:string,
     password:string,
-    repearPassword:string
+    repearPassword:string,
+    source:string,
+    date:string,
+    time:string,
+    description:string,
+    category:string,
+    from:string,
+    to:string,
+    categories:string,
+    transactions:string,
+    goals:string,
+    seeMore:string,
+    name:string,
+    createGoal:string,
+    monthlyChart:string,
+    selectColor:string
 
 }
 
@@ -46,19 +75,45 @@ const localStrings = new LocalizedStrings<LocalString>({
             nov: "November",
             dec: "December"
         },
+        screens:{
+            home:"Home",
+            report:"Report",
+            account:"Accounts",
+            profile:"Profile",
+            categories:"Categories",
+            tab:"Tab",
+            createCategory:"Create Category",
+            createGoal:"Create Goal",
+            goals:"Goals",
+            accountDetail:"Account Detail",
+            settings:"Settings"
+        },
         login: "Login",
-        haveAnAccount: "Already have an account? Signin",
-        dontHaveAnAccount: "Don´t have an Account? Signup",
+        haveAnAccount: "Already have an account?",
+        dontHaveAnAccount: "Don´t have an Account?",
         submit: "Submit",
         welcome: "Welcome",
         firstName:"First Name",
         lastName:"Last Name",
         email:"E-mail",
         password:"Password",
-        repearPassword:"Repeat Password"
-        
-
-
+        repearPassword:"Repeat Password",
+        signup:"Signup",
+        source:"Source",
+        date:"Date",
+        time:"Time",
+        description:"Description",
+        category:"Category",
+        from:"Sender",
+        to:"Beneficiary",
+        categories:"Categories",
+        transactions:"Transactions",
+        goals:"Goals",
+        seeMore:"See More",
+        name:"Name",
+        createGoal:"Create Your Goal",
+        monthlyChart:"Monthly Chart",
+        selectColor:"Select Color"
     },
     pt: {
         month: {
@@ -75,16 +130,45 @@ const localStrings = new LocalizedStrings<LocalString>({
             nov: "Novembro",
             dec: "Dezembro"
         },
+        screens:{
+            home:"Home",
+            report:"Relatórios",
+            account:"Contas",
+            profile:"Perfil",
+            categories:"Categorias",
+            tab:"Tab",
+            createCategory:"Criar Categoria",
+            createGoal:"Criar Objetivos",
+            goals:"Objetivos",
+            accountDetail:"Detalhes de Conta",
+            settings:"Difinições"
+        },
         login: "Login",
         haveAnAccount: "Já tem uma conta? Entre",
-        dontHaveAnAccount: "Não tem uma conta? Inscreve-se",
+        dontHaveAnAccount: "Não tem uma conta?",
         submit: "Confirmar",
         welcome: "Seja bem-vindo",
         firstName:"Primeiro Nome",
         lastName:"Último Nome",
         email:"E-mail",
         password:"Senha",
-        repearPassword:"Repita Senha"
+        repearPassword:"Repita Senha",
+        signup:"Cadastre",
+        source:"Fonte",
+        date:"Data",
+        time:"Horário",
+        description:"Descrição",
+        category:"Categoria",
+        to:"Beneficiário",
+        from:"Remetente",
+        categories:"Categorias",
+        transactions:"Transações",
+        goals:"Objetivos",
+        seeMore:"Ver Mais",
+        name:"Nome",
+        createGoal:"Crie Um Objetivo",
+        monthlyChart:"Gráfico Mensal",
+        selectColor:"Selecione uma cor"
 
     }
 });

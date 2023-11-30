@@ -1,4 +1,6 @@
-import { Image, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
+import { colorScheme } from "../../../../utils/color";
+import { Text } from "react-native-paper";
 
 type UserBarProps = {
     firstName:string
@@ -7,13 +9,13 @@ type UserBarProps = {
 }
 function UserBar({userProps}:{userProps:UserBarProps}) {
     return ( 
-        <View className="bg-bg w-full flex-row items-center gap-4">
+        <View style={style.main}>
             <Image source={{uri:"https://via.placeholder.com/600/92c952"}} className="rounded-full" width={60} height={60}/>
             <View>
-                <Text className="text-text">
+                <Text style={style.text}>
                     {"Hello,"}
                 </Text>
-                <Text className="text-text text-lg">
+                <Text variant="headlineSmall" style={style.text}>
                     {userProps.firstName}
                 </Text>
                 
@@ -21,5 +23,20 @@ function UserBar({userProps}:{userProps:UserBarProps}) {
         </View>
      );
 }
+const style = StyleSheet.create({
+    main:{
+        background:colorScheme.bg,
+        width:"100%",
+        flexDirection:"row",
+        alignItems:"center",
+        gap:10,
+        elevation:1,
+        padding:10
+    },
+    text:{
+        color:colorScheme.text
+    }
+
+})
 
 export default UserBar;

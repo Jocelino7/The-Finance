@@ -1,39 +1,78 @@
-import { Text, View } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 type TransactionCardProps = {
-    amount: number,
-    iconName: string,
-    category: string,
-    description: string,
-    date: string,
-    transactionColor: string,
-    background: string,
-    code: string
-}
-function TransactionCard({ transaction }: { transaction: TransactionCardProps }) {
+    amount: number;
+    iconName: string;
+    category: string;
+    description: string;
+    date: string;
+    transactionColor: string;
+    background: string;
+    code: string;
+};
+
+
+
+function TransactionCard({ transaction, backgroundColor }: { transaction: TransactionCardProps, backgroundColor: string }) {
     return (
-        <View className="flex-row gap-2 items-center gap-4 p-4 bg-tertiary rounded" style={{ elevation: 5 }}>
-            <View className="rounded-full w-8" style={{ backgroundColor: transaction.background }}>
-                <Icon name={transaction.iconName} size={30} />
+
+        <Pressable style={{ ...style.main, backgroundColor: backgroundColor }} android_ripple={{color:"#ccc"}}>
+
+            <View style={{ ...style.iconContainer, backgroundColor: transaction.background }}>
+                <Icon name={transaction.iconName} size={20} color="#fff" />
             </View>
 
-            <View className="flex-1">
-                <View className="flex-row justify-between">
-                    <Text className="font-bold text-text">
-                        {transaction.category}
-                    </Text>
-                    <Text className="font-bold text-text">
-                        {transaction.date}
-                    </Text>
+            <View style={style.categoryDateContainer}>
+                <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                    <View>
+                        <Text style={style.categoryDateText}>{transaction.category}</Text>
+                        <Text style={{ ...style.amountText, }}>
+                            {transaction.description}
+                        </Text>
+
+                    </View>
+
+                    <View>
+                        <Text style={style.categoryDateText}>{transaction.date}</Text>
+                        <Text style={{ ...style.amountText, color: transaction.amount > 0 ? "green" : "#FF0000" }}>
+                            {`${transaction.amount} ${transaction.code}`}
+                        </Text>
+
+                    </View>
+
                 </View>
-                <Text className="text-text" style={{
-                    color: transaction.amount > 0 ? "green" : "#FF0000"
-                }}>
-                    {`${transaction.amount} ${transaction.code}`}
-                </Text>
+
             </View>
-        </View>
+        </Pressable>
     );
 }
-
+const style = StyleSheet.create({
+    main: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: 16,
+        borderRadius: 8,
+        marginBottom: 8,
+    },
+    iconContainer: {
+        width: 40,
+        height: 40,
+        borderRadius: 40,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    categoryDateContainer: {
+        flex: 1,
+        marginLeft: 16,
+    },
+    categoryDateText: {
+        color: "#000", // Change this to your desired text color
+    },
+    amountText: {
+        marginTop: 4,
+    },
+});
 export default TransactionCard;

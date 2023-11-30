@@ -1,12 +1,15 @@
 import { SafeAreaView, StatusBar } from 'react-native';
-import CostumeTextField from './App/src/components/TextField.tsx/CostumeTextField';
-import Login from './App/src/screens/auth/login/login';
+import { colorScheme } from './utils/color';
+import { useState } from 'react';
+import TabBar from './App/src/screens/tabBar/TabBar';
+import Stack from './App/src/screens/stack/Stack';
 
 function App(): JSX.Element {
+  const [currentColor, setCurrentColor] = useState("#000")
   return (
-    <SafeAreaView className="flex-1 p-1">
-      <StatusBar backgroundColor={"#000"} />
-     <Login/>
+    <SafeAreaView style={{ flex: 1, backgroundColor: colorScheme.bg }}>
+      <StatusBar backgroundColor={currentColor} />
+      <Stack/>
     </SafeAreaView>
   )
 }

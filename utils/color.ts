@@ -9,18 +9,18 @@ interface Color {
     bg:string
 }
 const darkColorScheme:Color = {
-    main: "#EE964F",
-    secondary: "#51CFCF",
+    main: "#51CFCF",
+    secondary: "#EE964F",
     tertiary: "#ffffff",
-    text: "#000000",
+    text: "#fff",
     redColor:"#FF0000",
-    bg:"#fff"
+    bg:"#000"
 }
 const lightColorScheme:Color = {
-    main: "#EE964F",
-    secondary: "#51CFCF",
+    main: "#51CFCF",
+    secondary: "#EE964F",
     tertiary: "#ffffff",
-    text: "#000000",
+    text: "#000",
     redColor:"#FF0000",
     bg:"#fff"
 }
