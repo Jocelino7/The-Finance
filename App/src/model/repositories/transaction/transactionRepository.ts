@@ -1,9 +1,9 @@
-import { SourceFund, Transaction, User } from "../../dtos/dtos";
+import { SourceFundType, Transaction, User } from "../../dtos/dtos";
 
 export interface TransationRepository {
     getTransaction(uuid:string):Promise<Transaction>
     getTransactions(userUuid:string):Promise<Transaction[]>
-    getTransactionsFromSourceFund(sourceFund:SourceFund):Promise<Transaction[]>
+    getTransactionsFromSourceFund(sourceFund:SourceFundType):Promise<Transaction[]>
     getAllTransactionFromMonth(month:string):Promise<Transaction[]>
     deleteTransaction(userUuid:string):Promise<boolean>
     addTransaction(transaction:Transaction):Promise<boolean>

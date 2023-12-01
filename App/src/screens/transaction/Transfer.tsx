@@ -73,7 +73,7 @@ const style = StyleSheet.create({
     },
     main: {
         flex: 1,
-        gap: 25,
+        gap: 15,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colorScheme.bg

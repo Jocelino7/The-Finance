@@ -1,28 +1,33 @@
-import { Pressable, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import CostumeTextField from "../../components/TextField.tsx/CostumeTextField";
 import Button from "../../components/buttons/Button";
 import localStrings from "../../../../utils/localization";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import { colorScheme } from "../../../../utils/color";
+import useTransactionStore from "./transactionStore/transactionStore";
 
 function Income() {
+    const store = useTransactionStore()
     return (
         <View style={style.main}>
             <CostumeTextField props={{
-                text: "",
+                text: store.amount,
                 leadingIcon: "",
                 trailingIcon: "",
                 placeholder: "0",
                 label: "",
                 mode: "outlined",
-                editable: undefined,
+                editable: false,
                 fontSize:25,
                 textColor:colorScheme.main,
+                error:true,
+                errorMessage:"Error Message",
                 onChange: function (value: string): void {
                     throw new Error("Function not implemented.");
                 },
-                onPress: () => { }
-            }} />
+                onPress: () => {store.setKeyboardVisibility(!store.showKeyboard)},
+            }} 
+        
+             />
 
             <CostumeTextField props={{
                 text: "",
@@ -79,16 +84,14 @@ function Income() {
                 onPress: () => { }
             }} />
             <CostumeTextField props={{
-                text: "",
+                text: store.description,
                 leadingIcon: "info",
                 trailingIcon: "",
                 placeholder: "",
                 label: localStrings.description,
                 mode: undefined,
                 editable: undefined,
-                onChange: function (value: string): void {
-                    throw new Error("Function not implemented.");
-                },
+                onChange: store.onDescriptionChange,
                 onPress: () => { }
             }} />
             <Button text={localStrings.submit} onPress={() => { }} />
@@ -106,7 +109,7 @@ const style = StyleSheet.create({
     },
     main: {
         flex: 1, 
-        gap: 25,
+        gap: 15,
         alignItems:"center" ,
         justifyContent:"center",
         backgroundColor:colorScheme.bg

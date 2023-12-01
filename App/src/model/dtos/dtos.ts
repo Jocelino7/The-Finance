@@ -58,3 +58,13 @@ export type Validation = {
     errorMessage:string,
     field:Fields
 }
+export type DateType = {
+    day:number,
+    month:number,
+    year:number
+}
+export type DateProvider = {
+    currentDay:number,
+    currentMonth:number,
+    currentYear:number
+}

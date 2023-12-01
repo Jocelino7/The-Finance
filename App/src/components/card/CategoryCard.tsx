@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Category } from "../../model/dtos/dtos";
+import { CategoryType } from "../../model/dtos/dtos";
 import { colorScheme } from "../../../../utils/color";
-function CategoryCard({ category }: { category: Category }) {
+function CategoryCard({ category }: { category: CategoryType }) {
     return (
         <View style={style.main}>
             <View style={[style.icon, { backgroundColor: category.color }]}>

@@ -19,9 +19,9 @@ function Card({ card }: { card: CardProps }) {
 
     return (
         <LinearGradient
-            colors={["#ccc","#fff"]}
+            colors={[colorScheme.main,"#fff"]}
             start={{ x: 0, y: 0 }}
-            end={{ x: 0.5, y: 0.5 }}
+            end={{ x: 0.7, y: 0.5 }}
             style={[style.main, { backgroundColor: card.background, }]}>
 
             <View style={style.header}>
