@@ -7,11 +7,12 @@ import {
     ContributionGraph,
     StackedBarChart
 } from "react-native-chart-kit";
+import { colorScheme } from "../../../../utils/color";
 const ChartConfig = {
 
-    backgroundColor: "#51CFCF",
-    backgroundGradientFrom: "#51CFCF",
-    backgroundGradientTo: "#51CFCF",
+    backgroundColor: colorScheme.main,
+    backgroundGradientFrom: colorScheme.main,
+    backgroundGradientTo: colorScheme.main,
     decimalPlaces: 2, // optional, defaults to 2dp
     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,

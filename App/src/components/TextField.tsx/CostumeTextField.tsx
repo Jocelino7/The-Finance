@@ -1,9 +1,9 @@
 import { Text, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colorScheme } from '../../../../utils/color';
-import { NativeSyntheticEvent, Pressable, TextInputChangeEventData, View } from "react-native";
+import { NativeSyntheticEvent, Pressable, StyleSheet, TextInputChangeEventData, View } from "react-native";
 type TextFieldProps = {
-    text: string,
+    text?: string,
     leadingIcon?: string,
     trailingIcon?: string,
     placeholder: string,
@@ -25,7 +25,7 @@ function CostumeTextField({ props }: { props: TextFieldProps }) {
         <Pressable style={{ gap: 5, width: "100%" }} onPress={() => props.onPress()}>
             <TextInput
                 onChange={(e: NativeSyntheticEvent<TextInputChangeEventData>) => props.onChange(e.nativeEvent.text)}
-                style={{ width: "100%", backgroundColor: colorScheme.bg, elevation: 3, fontSize: props.fontSize, color: props.textColor, height: props.multiline ? 100 : undefined }}
+                style={{ ...style.textInput, fontSize: props.fontSize, color: props.textColor, height: props.multiline ? 100 : undefined }}
                 value={props.text}
                 label={props.label}
                 mode={props.mode == null ? "outlined" : props.mode}
@@ -35,12 +35,16 @@ function CostumeTextField({ props }: { props: TextFieldProps }) {
                     props.trailingIcon && <TextInput.Icon icon={() => <Icon name={props.trailingIcon!} size={30} color={colorScheme.main} />} />
                 }
                 left={props.leadingIcon && <TextInput.Icon icon={() => <Icon name={props.leadingIcon!} size={30} color={colorScheme.main} />} />}
-                activeUnderlineColor={props.outlinedColor ? colorScheme.text : props.outlinedColor}
+                activeUnderlineColor={colorScheme.main}
+                outlineColor="#ccc"
+                cursorColor={colorScheme.main}
                 textColor={props.textColor ? props.textColor : colorScheme.text}
                 placeholderTextColor={props.textColor ? props.textColor : colorScheme.text}
                 multiline={props.multiline}
                 error={props.error}
                 secureTextEntry={props.secureTextEntry}
+                activeOutlineColor={colorScheme.main}
+                outlineStyle={style.outlined}
             />
             {
                 props.error &&
@@ -55,5 +59,14 @@ function CostumeTextField({ props }: { props: TextFieldProps }) {
 
     );
 }
-
+const style = StyleSheet.create({
+    textInput: {
+        width: "100%", backgroundColor: colorScheme.bg,
+        borderColor:"red",
+        borderRadius:50
+    },
+    outlined:{
+        borderRadius:10
+    }
+})
 export default CostumeTextField;

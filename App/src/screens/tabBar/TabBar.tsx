@@ -13,15 +13,15 @@ function TabBar() {
     const Tab = createBottomTabNavigator();
     const { home, report, categories, account } = localStrings.screens
     return (
-        <NavigationContainer  independent={true}>
+        <NavigationContainer independent={true}>
             <Tab.Navigator screenOptions={
                 {
                     headerShown: false,
                     tabBarActiveTintColor: colorScheme.main,
-                    tabBarStyle:{
-                        padding:5,
-                        height:60,
-                        backgroundColor:colorScheme.bg
+                    tabBarStyle: {
+                        padding: 5,
+                        height: 60,
+                        backgroundColor: colorScheme.bg
                     }
                 }
             }>
@@ -35,11 +35,11 @@ function TabBar() {
                         tabBarIcon: ({ color, size }) => <Icon name="show-chart" size={size} color={color} />
                     }
                 } />
-                 <Tab.Screen name="add" component={Transaction} options={
+                <Tab.Screen name="add" component={Transaction} options={
                     {
-                        tabBarLabel:"",
+                        tabBarLabel: "",
                         tabBarIcon: ({ color, size }) => <Icon name="add-circle" color={color} size={42} />,
-                        
+
                     }
                 } />
                 <Tab.Screen name={account} component={Accounts} options={

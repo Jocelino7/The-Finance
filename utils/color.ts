@@ -1,5 +1,6 @@
 import { Appearance } from "react-native"
-
+//#90EE90
+//#51CFCF
 interface Color {
     main: string,
     secondary: string,
@@ -8,8 +9,9 @@ interface Color {
     redColor:string,
     bg:string
 }
+const main = "#023020"
 const darkColorScheme:Color = {
-    main: "#51CFCF",
+    main,
     secondary: "#EE964F",
     tertiary: "#ffffff",
     text: "#fff",
@@ -17,7 +19,7 @@ const darkColorScheme:Color = {
     bg:"#000"
 }
 const lightColorScheme:Color = {
-    main: "#51CFCF",
+    main,
     secondary: "#EE964F",
     tertiary: "#ffffff",
     text: "#000",
@@ -25,5 +27,5 @@ const lightColorScheme:Color = {
     bg:"#fff"
 }
 const scheme = Appearance.getColorScheme()
-const colorScheme = scheme=="light"?lightColorScheme : darkColorScheme
+const colorScheme = scheme=="light"?lightColorScheme:darkColorScheme
 export {colorScheme}

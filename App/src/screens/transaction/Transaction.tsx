@@ -1,7 +1,7 @@
-import { View, useWindowDimensions } from "react-native";
+import { BackHandler, View, useWindowDimensions } from "react-native";
 import { SceneMap, TabView } from "react-native-tab-view";
 import { TabHeader } from "../../components/others/TabHeader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Income from "./Income";
 import Transfer from "./Transfer";
 import { colorScheme } from "../../../../utils/color";
@@ -24,6 +24,15 @@ function Transaction() {
         { key: 'spends', title: 'Spends' },
     ]);
     const store = useTransactionStore()
+    useEffect(()=>{
+        BackHandler.addEventListener("hardwareBackPress",()=>{
+            if(store.showKeyboard){
+                store.setKeyboardVisibility(false)
+                return true
+            }
+            return false
+        })
+    })
     return (
         <View style={{ flex: 1, backgroundColor: colorScheme.bg }}>
             <View style={{ flex: 1, padding: 10 }}>

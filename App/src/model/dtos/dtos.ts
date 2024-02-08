@@ -1,33 +1,35 @@
-import { Fields, TransactionType } from "../../../../utils/enum"
+import { CategoryTypeEnum, Fields, TransactionType } from "../../../../utils/enum"
 
 export type Transaction = {
     uuid:string,
     user:User,
     transactionDate:TransactionDate,
     transactionType:TransactionType,
-    sourceFund:SourceFund,
-    icon:string
+    sourceFund:SourceFundType,
+    category:CategoryType,
     amount:number,
+    week:number
     createdAt:Date,
     updatedAt?:Date
 }
-export type SourceFund ={
+export type SourceFundType ={
     uuid:string,
-    user:User,
+    user?:User,
     name:string,
-    color:string,
-    createdAt:Date,
+    icon:string,
+    createdAt?:Date,
     updatedAt?:Date,
-    goal?:Goal
+    goal?:GoalType
 }
-export type Category = {
+export type CategoryType = {
     uuid:string,
+    type:CategoryTypeEnum,
     user?:User,
     name:string,
     icon:string,
     color:string
 }
-export type Goal = {
+export type GoalType = {
     uuid:string,
     user:User,
     name:string,

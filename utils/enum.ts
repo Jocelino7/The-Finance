@@ -7,3 +7,6 @@ export enum Fields{
 export enum DateCalculation{
     Today,Yesterday,BeforeYesterday
 }
+export enum CategoryTypeEnum{
+    Incomes,Spends
+}

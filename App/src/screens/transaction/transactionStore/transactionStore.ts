@@ -13,7 +13,7 @@ const useTransactionStore = create<TransactionStoreType>((set,get)=>({
     source:undefined,
     sender:undefined,
     beneficiary:undefined,
-    showKeyboard:true,
+    showKeyboard:false,
     setCategory:(Category:CategoryType)=>{
 
     },
